@@ -1,6 +1,6 @@
-package hhl.dream.list.node;
+package reset.work.list.node;
 
-import hhl.dream.json.JSON;
+import reset.work.json.JSON;
 import lombok.Data;
 
 /**
@@ -20,7 +20,7 @@ public class AddTwoNumbers {
             System.out.println("y = " + y);
             int temp = x + y + carry;
             carry = temp / 10;
-            System.out.println("cur node before:"+JSON.toJSONString(cur));
+            System.out.println("cur node before:"+ JSON.toJSONString(cur));
             System.out.println("head node before:"+JSON.toJSONString(head));
             cur.next = new ListNode(temp % 10);
             System.out.println("cur next ing :"+JSON.toJSONString(cur));
