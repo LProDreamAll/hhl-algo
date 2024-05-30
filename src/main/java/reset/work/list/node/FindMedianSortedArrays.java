@@ -27,10 +27,10 @@ package reset.work.list.node;
  */
 public class FindMedianSortedArrays {
     /**
-     * 1-先合并数组，合并的时候注意
-     *  a.最大长度是两个数组之和
-     *  b.两个指针，i1,i2.每次取小的数放到前面，被放进去数组的指针要前移动，大的不动。
-     *  c.当指针到达某一个数组的长度的时候,给他设置最大值，后续不参与赋值了
+     * a.合并数组，最大长度是两个数组之和
+     * b.两个指针，i1,i2.每次取小的数放到前面，被放进去数组的指针要前移动，大的不动。
+     * c.当指针到达某一个数组的长度的时候,给他设置最大值，后续不参与赋值了
+     *
      * @param nums1
      * @param nums2
      * @return
@@ -42,15 +42,15 @@ public class FindMedianSortedArrays {
         for (int i = 0; i < sumLen; i++) {
             int n1;
             //当指针到达某一个数组的长度的时候,给他设置最大值，后续不参与赋值了
-            if (index1 == nums1.length){
-                n1=Integer.MAX_VALUE;
-            }else {
+            if (index1 == nums1.length) {
+                n1 = Integer.MAX_VALUE;
+            } else {
                 n1 = nums1[index1];
             }
             int n2;
-            if (index2 == nums2.length){
-                n2=Integer.MAX_VALUE;
-            }else {
+            if (index2 == nums2.length) {
+                n2 = Integer.MAX_VALUE;
+            } else {
                 n2 = nums2[index2];
             }
             if (n1 <= n2) {
@@ -69,6 +69,7 @@ public class FindMedianSortedArrays {
             return (double) (res[mid] + res[mid - 1]) / 2;
         }
     }
+
     public static void main(String[] args) {
         int[] nums1 = {1};
         int[] nums2 = {3, 4};
