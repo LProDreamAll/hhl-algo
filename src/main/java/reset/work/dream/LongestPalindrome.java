@@ -59,6 +59,7 @@ public class LongestPalindrome {
         return true;
     }
 
+
     public static void main(String[] args) {
         List<String> strings = Lists.newArrayList("cbbc", "baabd", "aa", "aabbccc");
         for (String string : strings) {
