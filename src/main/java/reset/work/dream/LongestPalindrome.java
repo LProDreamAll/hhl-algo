@@ -21,9 +21,73 @@ import java.util.List;
  * 输出："bb"
  */
 public class LongestPalindrome {
-    //https://leetcode.cn/problems/longest-palindromic-substring/solutions/2746518/javapython3cdong-tai-gui-hua-zhong-xin-k-frpr/
+    /**
+     * xxxxx
+     *   i
+     * xxxx
+     *  mn
+     * n=m+1
+     * 中心发散
+     * 1-奇数
+     * 2-偶数
+     *
+     * @param s
+     * @return
+     */
     public static String longestPalindrome(String s) {
-        return null;
+        int length = s.length();
+        int maxLen = 1, start = 0;
+        for (int i = 0; i < length; i++) {
+            int o1 = expandSearchLongest(s, i, i);
+            int o2 = expandSearchLongest(s, i, i + 1);
+            int max = Math.max(o2, o1);
+            if (max > maxLen) {
+                maxLen = max;
+                //根据中心点计算长度
+                start = i - (max - 1) / 2;
+            }
+        }
+        //起始位置+长度
+        return s.substring(start, start+ maxLen);
+    }
+
+    //  从[left, right]为中心向两端扩展，找到最长回文串，并返回最大长度
+    private static int expandSearchLongest(String s, int l, int r) {
+        int length = s.length();
+        while (l >= 0 && r < length && (s.charAt(l) == s.charAt(r))) {
+            l--;
+            r++;
+        }
+        //r不在当前回文上，l最小能为0
+        return r - l - 1;
+    }
+
+    public static String longestPalindrome2(String s) {
+        //如果 i= j 相同
+        //如果 i-1 = j 取决于二者相同
+        // 否则得判断 二者相同加上 dp[j+1][i-1] 相同
+        int maxLen = 1;
+        int length = s.length();
+        int start = 0;
+        boolean[][] dp = new boolean[length][length];
+        for (int m = 0; m < length; m++) {
+            for (int n = m; n >= 0; n--) {
+                if (m == n) {
+                    dp[n][m] = true;
+                } else if (n == m - 1) {
+                    dp[n][m] = s.charAt(n) == s.charAt(m);
+                } else {
+                    dp[n][m] = (s.charAt(n) == s.charAt(m)) && dp[n + 1][m - 1];
+                }
+//                [j,i]为回文串且长度更大，更新
+                if (dp[n][m] && (m - n + 1) > maxLen) {
+                    maxLen = m - n + 1;
+                    start = n;
+                }
+            }
+        }
+
+        return s.substring(start, start + maxLen);
 
     }
 
@@ -61,9 +125,9 @@ public class LongestPalindrome {
 
 
     public static void main(String[] args) {
-        List<String> strings = Lists.newArrayList("cbbc", "baabd", "aa", "aabbccc");
+        List<String> strings = Lists.newArrayList("cbbc", "babd", "aa", "aabbccc");
         for (String string : strings) {
-            System.out.println("res: " + longestPalindrome1(string));
+            System.out.println("res: " + longestPalindrome(string));
         }
     }
 }
