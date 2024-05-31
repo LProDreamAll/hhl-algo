@@ -1,4 +1,4 @@
-package reset.work.list.node;
+package reset.work.dream;
 
 import com.google.common.collect.Maps;
 import reset.work.json.JSON;
