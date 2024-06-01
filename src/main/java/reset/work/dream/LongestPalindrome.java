@@ -39,13 +39,18 @@ public class LongestPalindrome {
         int maxLen = 1, start = 0;
         for (int i = 0; i < length; i++) {
             int o1 = expandSearchLongest(s, i, i);
+            System.out.println("o1 = " + o1);
             int o2 = expandSearchLongest(s, i, i + 1);
+            System.out.println("o2 = " + o2);
             int max = Math.max(o2, o1);
             if (max > maxLen) {
                 maxLen = max;
-                //根据中心点计算长度
+                System.out.println("max = " + maxLen);
+                //根据中心点计算长度 偶数正好/2 奇数得减一/2 java计算int 会进一位
                 start = i - (max - 1) / 2;
+                System.out.println("start = " + start);
             }
+            System.out.println("***************************");
         }
         //起始位置+长度
         return s.substring(start, start+ maxLen);
@@ -53,13 +58,16 @@ public class LongestPalindrome {
 
     //  从[left, right]为中心向两端扩展，找到最长回文串，并返回最大长度
     private static int expandSearchLongest(String s, int l, int r) {
+        System.out.println("l: "+l+" r: "+r);
         int length = s.length();
         while (l >= 0 && r < length && (s.charAt(l) == s.charAt(r))) {
             l--;
             r++;
         }
+        int i = r - l - 1;
+        System.out.println("len = " + i);
         //r不在当前回文上，l最小能为0
-        return r - l - 1;
+        return i ;
     }
 
     public static String longestPalindrome2(String s) {
@@ -125,7 +133,7 @@ public class LongestPalindrome {
 
 
     public static void main(String[] args) {
-        List<String> strings = Lists.newArrayList("cbbc", "babd", "aa", "aabbccc");
+        List<String> strings = Lists.newArrayList("aabbccc");
         for (String string : strings) {
             System.out.println("res: " + longestPalindrome(string));
         }
