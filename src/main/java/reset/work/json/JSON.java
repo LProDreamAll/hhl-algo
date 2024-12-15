@@ -1,4 +1,4 @@
-package hhl.dream.json;
+package reset.work.json;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;

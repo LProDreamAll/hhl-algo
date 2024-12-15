@@ -1,4 +1,4 @@
-package hhl.dream.json;
+package reset.work.json;
 
 
 import java.io.Serializable;
