@@ -1,4 +1,4 @@
-package reset.work.dream;
+package org.hhl.algorithm.old;
 
 import com.google.common.collect.Lists;
 

@@ -1,4 +1,4 @@
-package common.json;
+package org.hhl.common.json;
 
 
 import java.io.Serializable;

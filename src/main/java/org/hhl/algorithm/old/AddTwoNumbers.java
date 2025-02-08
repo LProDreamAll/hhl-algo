@@ -1,6 +1,6 @@
-package reset.work.dream;
+package org.hhl.algorithm.old;
 
-import common.json.JSON;
+import org.hhl.common.json.JSON;
 import lombok.Data;
 
 /**

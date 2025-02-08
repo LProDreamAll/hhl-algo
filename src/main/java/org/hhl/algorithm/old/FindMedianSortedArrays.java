@@ -1,4 +1,4 @@
-package reset.work.dream;
+package org.hhl.algorithm.old;
 
 /**
  * 寻找两个正序数组的中位数

@@ -1,4 +1,4 @@
-package reset.work.dream;
+package org.hhl.algorithm.old;
 
 // 回文数
 public class IsPalindrome {

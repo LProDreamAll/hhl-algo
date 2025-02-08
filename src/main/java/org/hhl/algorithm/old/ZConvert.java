@@ -1,4 +1,4 @@
-package reset.work.dream;
+package org.hhl.algorithm.old;
 
 /**
  * Z字形变换
