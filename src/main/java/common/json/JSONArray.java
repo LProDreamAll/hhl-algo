@@ -1,4 +1,4 @@
-package reset.work.json;
+package common.json;
 
 
 import java.io.Serializable;
