@@ -1,6 +1,6 @@
-package hhl.dream.list.node;
+package org.hhl.algorithm.old;
 
-import hhl.dream.json.JSON;
+import org.hhl.common.json.JSON;
 import lombok.Data;
 
 /**
@@ -8,7 +8,6 @@ import lombok.Data;
  * https://leetcode.cn/problems/add-two-numbers/
  */
 public class AddTwoNumbers {
-
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode head = new ListNode(0);
@@ -21,7 +20,7 @@ public class AddTwoNumbers {
             System.out.println("y = " + y);
             int temp = x + y + carry;
             carry = temp / 10;
-            System.out.println("cur node before:"+JSON.toJSONString(cur));
+            System.out.println("cur node before:"+ JSON.toJSONString(cur));
             System.out.println("head node before:"+JSON.toJSONString(head));
             cur.next = new ListNode(temp % 10);
             System.out.println("cur next ing :"+JSON.toJSONString(cur));

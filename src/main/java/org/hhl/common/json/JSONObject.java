@@ -1,4 +1,4 @@
-package hhl.dream.json;
+package org.hhl.common.json;
 
 import java.io.Serializable;
 import java.util.*;
