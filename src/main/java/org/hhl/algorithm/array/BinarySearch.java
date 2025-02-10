@@ -10,7 +10,7 @@ public class BinarySearch {
         while (left <= right) {
             int mid = left + (right -left) / 2;
             if (target < arr[mid]) {
-                //这时需要继续在左边寻找，right 在下次循环的时候要提前变成当前的中间点
+                //这时需要继续在左边寻找，right 在下次循环的时候要提前变成当前的中间点，并且隐含当前中间值不等于target,需要往左多移动以一个坐标。
                 right = mid - 1;
             }else if (target > arr[mid]) {
                 left = mid + 1;
@@ -22,12 +22,4 @@ public class BinarySearch {
         return -1;
     }
 
-    public static void main(String[] args) {
-        int[] arr = {1, 3, 5, 7, 9, 11, 13};
-        System.out.println( BinarySearch.binarySearch(arr, 7) == 3);
-        System.out.println( BinarySearch.binarySearch(arr, 1) == 0);
-        System.out.println( BinarySearch.binarySearch(arr, 13) == 6);
-        System.out.println( BinarySearch.binarySearch(arr, 8) == -1);
-
-    }
 }
