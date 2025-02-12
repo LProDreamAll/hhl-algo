@@ -1,4 +1,4 @@
-package org.hhl.common.structure;
+package org.hhl.common.structure.stack;
 
 /**
  * 下压栈

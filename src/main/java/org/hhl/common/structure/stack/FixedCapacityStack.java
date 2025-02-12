@@ -1,11 +1,13 @@
-package org.hhl.common.structure;
+package org.hhl.common.structure.stack;
+
+import java.util.Iterator;
 
 /**
  * 定容的栈
  *
  * @param <T>
  */
-public class FixedCapacityStack<T> {
+public class FixedCapacityStack<T> implements Iterable<T>{
     private Object[] arr;
     private int n;
 
@@ -47,5 +49,27 @@ public class FixedCapacityStack<T> {
             temp[i] = arr[i];
         }
         arr = temp;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new FixedCapacityStackIterator();
+    }
+    private class FixedCapacityStackIterator implements Iterator<T>{
+        private int i = n;
+        @Override
+        public boolean hasNext() {
+            return i>0;
+        }
+
+        @Override
+        public T next() {
+            return(T) arr[--i];
+        }
+
+        @Override
+        public void remove() {
+
+        }
     }
 }
